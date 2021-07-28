@@ -2,9 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Setup environment
+## Install dependencies
 
-You should have an `.env` file at the root of this project. You can use `.env.example` as starting point and make sure to replace all placeholder variables `<...>` by the proper information for your organization.
+`npm i`
 
 ## Available Scripts
 
@@ -17,9 +17,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-This command will also start an express server and will generate [Coveo search tokens](https://docs.coveo.com/en/1346/).
-_See [@coveo/search-token-server](https://www.npmjs.com/package/@coveo/search-token-server)_
 
 ### `yarn test`
 
