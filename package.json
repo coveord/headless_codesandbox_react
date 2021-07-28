@@ -22,12 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "setup-server": "node ./scripts/setup-server.js",
-    "setup-env": "node ./scripts/setup-env.js",
-    "start-server": "node ./scripts/start-server.js",
-    "prestart": "node ./scripts/ensure-server.js",
-    "allocate-port": "node ./scripts/port-allocator.mjs"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
