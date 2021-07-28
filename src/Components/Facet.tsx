@@ -9,13 +9,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Box from "@material-ui/core/Box";
 import List from "@material-ui/core/List";
 import "./Facet.css";
-import {
-  Divider,
-  ListItem,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Divider, ListItem, ListItemText, Typography } from "@material-ui/core";
 import EngineContext from "../common/engineContext";
 
 interface FacetProps {

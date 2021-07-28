@@ -33,7 +33,7 @@ const SearchPage: React.FunctionComponent<ISearchPageProps> = (props) => {
   return (
     <EngineProvider value={engine}>
       <Container>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item md={8} className={classes.SearchBoxSection}>
             <SearchBox />
           </Grid>

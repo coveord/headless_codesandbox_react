@@ -98,7 +98,10 @@ const ResultListRenderer: FunctionComponent<ResultListProps> = (props) => {
   });
 
   useEffect(
-    () => controller.subscribe(() => setState(controller.state)),
+    () =>
+      controller.subscribe(() =>
+        setTimeout(() => setState(controller.state), 0)
+      ),
     [controller]
   );
   if (!state.firstSearchExecuted) {
