@@ -19,7 +19,7 @@
     "yargs-parser": "^20.2.5"
   },
   "scripts": {
-    "start": "yarn allocate-port && concurrently --raw \"npm run start-server\" \"react-scripts start\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

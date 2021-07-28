@@ -1,30 +1,23 @@
-import red from '@material-ui/core/colors/red';
-import {createMuiTheme} from '@material-ui/core/styles';
+import { createTheme } from "@material-ui/core/styles";
 
 // A custom theme for this app
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
-    type: 'light',
-    text: {
-      // You can easily change the overall text color
-      // primary: '#282829',
-      // secondary: '#E5E8E8',
-    },
     primary: {
-      main: '#2e45ba',
+      main: "#1372ec",
     },
     secondary: {
-      main: '#004990',
+      main: "#333357",
     },
     error: {
-      main: red.A400,
+      main: "#ce3f00",
     },
     background: {
-      default: '#fff',
+      default: "#ffffff",
     },
   },
   typography: {
-    fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
+    fontFamily: "Avenir, Helvetica, Arial, sans-serif",
     // Material-UI uses rem units for the font size. This will change the base size for the entire search page
     // More info at https://material-ui.com/customization/typography/#font-size
     fontSize: 17,

@@ -1,12 +1,22 @@
-import {FunctionComponent, useEffect, useState, useContext} from 'react';
-import {Facet as HeadlessFacet, buildFacet, FacetValue} from '@coveo/headless';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
-import './Facet.css';
-import {Divider, ListItem, ListItemText, Typography} from '@material-ui/core';
-import EngineContext from '../common/engineContext';
+import { FunctionComponent, useEffect, useState, useContext } from "react";
+import {
+  Facet as HeadlessFacet,
+  buildFacet,
+  FacetValue,
+} from "@coveo/headless";
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import Box from "@material-ui/core/Box";
+import List from "@material-ui/core/List";
+import "./Facet.css";
+import {
+  Divider,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
+import EngineContext from "../common/engineContext";
 
 interface FacetProps {
   title: string;
@@ -18,7 +28,7 @@ interface FacetRendererProps extends FacetProps {
 }
 
 const FacetRenderer: FunctionComponent<FacetRendererProps> = (props) => {
-  const {controller} = props;
+  const { controller } = props;
   const [state, setState] = useState(controller.state);
 
   useEffect(
@@ -52,7 +62,7 @@ const FacetRenderer: FunctionComponent<FacetRendererProps> = (props) => {
 
           return (
             <ListItem
-              style={{padding: 0}}
+              style={{ padding: 0 }}
               key={value.value}
               role={undefined}
               button
@@ -64,7 +74,7 @@ const FacetRenderer: FunctionComponent<FacetRendererProps> = (props) => {
                 checked={controller.isValueSelected(value)}
                 tabIndex={-1}
                 disableRipple
-                inputProps={{'aria-labelledby': labelId}}
+                inputProps={{ "aria-labelledby": labelId }}
               />
               <ListItemText
                 className="truncate inline"

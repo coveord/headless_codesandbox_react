@@ -1,17 +1,17 @@
-import {FunctionComponent, useEffect, useState, useContext} from 'react';
+import { FunctionComponent, useEffect, useState, useContext } from "react";
 import {
   buildQuerySummary,
   QuerySummary as HeadlessQuerySummary,
-} from '@coveo/headless';
-import {Box, Divider} from '@material-ui/core';
-import EngineContext from '../common/engineContext';
+} from "@coveo/headless";
+import { Box, Divider } from "@material-ui/core";
+import EngineContext from "../common/engineContext";
 
 interface QuerySummaryProps {
   controller: HeadlessQuerySummary;
 }
 
 const QuerySummaryRenderer: FunctionComponent<QuerySummaryProps> = (props) => {
-  const {controller} = props;
+  const { controller } = props;
   const [state, setState] = useState(controller.state);
 
   useEffect(
@@ -62,6 +62,10 @@ const QuerySummaryRenderer: FunctionComponent<QuerySummaryProps> = (props) => {
       </Box>
     );
   };
+
+  if (!state.firstSearchExecuted) {
+    return null;
+  }
 
   return !state.hasResults ? renderNoResults() : renderHasResults();
 };

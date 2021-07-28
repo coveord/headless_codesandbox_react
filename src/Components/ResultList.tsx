@@ -1,16 +1,25 @@
-import {FunctionComponent, useContext, useEffect, useState} from 'react';
-import List from '@material-ui/core/List';
-import {ListItem, Box, Typography, ListItemProps} from '@material-ui/core';
+import { FunctionComponent, useContext, useEffect, useState } from "react";
+import List from "@material-ui/core/List";
+import {
+  ListItem,
+  Box,
+  Typography,
+  ListItemProps,
+  LinearProgress,
+  makeStyles,
+} from "@material-ui/core";
 import {
   buildResultList,
   Result,
   buildResultTemplatesManager,
   ResultTemplatesManager,
   ResultList as HeadlessResultList,
-} from '@coveo/headless';
-import EngineContext from '../common/engineContext';
+} from "@coveo/headless";
+import EngineContext from "../common/engineContext";
 
 type Template = (result: Result) => React.ReactNode;
+
+const useStyles = makeStyles({ Box: { margin: "50px 10px", height: "500px" } });
 
 interface FieldValueInterface {
   value: string;
@@ -20,7 +29,7 @@ interface FieldValueInterface {
 interface ResultListProps {
   controller: HeadlessResultList;
 }
-function ListItemLink(props: ListItemProps<'a'>) {
+function ListItemLink(props: ListItemProps<"a">) {
   return (
     <ListItem {...props} button component="a">
       <Typography variant="body1" color="primary">
@@ -35,7 +44,7 @@ function FieldValue(props: FieldValueInterface) {
     <Box>
       <Typography
         color="textSecondary"
-        style={{fontWeight: 'bold'}}
+        style={{ fontWeight: "bold" }}
         variant="caption"
       >
         {props.caption}:&nbsp;
@@ -48,9 +57,10 @@ function FieldValue(props: FieldValueInterface) {
 }
 
 const ResultListRenderer: FunctionComponent<ResultListProps> = (props) => {
-  const {controller} = props;
+  const { controller } = props;
   const engine = useContext(EngineContext)!;
   const [state, setState] = useState(controller.state);
+  const classes = useStyles(props);
 
   const headlessResultTemplateManager: ResultTemplatesManager<Template> =
     buildResultTemplatesManager(engine);
@@ -91,6 +101,13 @@ const ResultListRenderer: FunctionComponent<ResultListProps> = (props) => {
     () => controller.subscribe(() => setState(controller.state)),
     [controller]
   );
+  if (!state.firstSearchExecuted) {
+    return (
+      <Box className={classes.Box}>
+        <LinearProgress style={{ height: "20px" }} />
+      </Box>
+    );
+  }
 
   return (
     <List>
